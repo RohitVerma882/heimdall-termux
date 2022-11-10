@@ -16,8 +16,14 @@ Building heimdall for termux with no root
 
    ```termux-usb -l```
    
-5. Copy deviceName example: ```dev/bus/...``` and run command
+5. Copy deviceName example: ```dev/bus/usb/*``` and run command
    
-   ```termux-usb -r dev/bus/...```
+   ```termux-usb -r dev/bus/usb/*```
    
-6. Now run heimdall commands like: ```heimdall flash --RECOVERY recovery.img --no-reboot```
+6. Check device detect
+
+   ```heimdall detect```
+
+7. Now run heimdall commands like: ```heimdall flash --RECOVERY recovery.img --no-reboot```
+
+Note: You need to follow these steps again if device is reconnected 

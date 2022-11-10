@@ -35,6 +35,17 @@
 using namespace std;
 using namespace Heimdall;
 
+static int getDevFd() {
+    char* fd_str = getenv("TERMUX_USB_FD");
+    if (fd_str != nullptr) {
+        long int fd_long = strtol(fd_str, nullptr, 10);
+        if (fd_long >= INT_MIN && fd_long <= INT_MAX) {
+            return (int)fd_long;
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char **argv)
 {
 	if (argc < 2)
@@ -42,14 +53,16 @@ int main(int argc, char **argv)
 		Interface::PrintUsage();
 		return (0);
 	}
+	
+	int fd = getDevFd();
 
 	int result = 0;
 	map<string, Interface::ActionInfo>::const_iterator actionIt = Interface::GetActionMap().find(argv[1]);
 
 	if (actionIt != Interface::GetActionMap().end())
-		result = actionIt->second.executeFunction(-1, argc, argv);
+		result = actionIt->second.executeFunction(fd, argc, argv);
 	else
-		result = HelpAction::Execute(-1, argc, argv);
+		result = HelpAction::Execute(fd, argc, argv);
 	
 	return (result);
 }
