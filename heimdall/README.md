@@ -1,8 +1,8 @@
-heimdall on linux
-====================
+heimdall linux
+==============
 
 Usage:
----------
+------
 
 1. Fully charge your phone (use the wall charger as it's faster).
 
@@ -17,12 +17,12 @@ Usage:
 
 6. Type the following to list all the functionality Heimdall supports:
    
-   heimdall help
+   ```heimdall help```
    
 
 7. Before flashing, you must first know the names of the partitions you wish to flash. These can be obtained by executing:
    
-   heimdall print-pit --no-reboot
+   ```heimdall print-pit --no-reboot```
    
    The inclusion of --no-reboot ensures the phone will not reboot after PIT file has been downloaded and displayed. 
    After executing a command with the --no-reboot argument, the next command should include the --resume argument.
@@ -31,7 +31,7 @@ Usage:
 8. Use the help and print-pit output to construct a command with all the files you want to flash.
    Here is an example that does a full flash and repartition on a GT-I9000:
    
-   heimdall flash --repartition --resume --pit s1_odin_20100512.pit --FACTORYFS factoryfs.rfs --CACHE cache.rfs --DBDATA dbdata.rfs --IBL+PBL boot.bin --SBL Sbl.bin --PARAM param.lfs --KERNEL zImage --MODEM modem.bin
+   ```heimdall flash --repartition --resume --pit s1_odin_20100512.pit --FACTORYFS factoryfs.rfs --CACHE cache.rfs --DBDATA dbdata.rfs --IBL+PBL boot.bin --SBL Sbl.bin --PARAM param.lfs --KERNEL zImage --MODEM modem.bin```
    
 
 9. Heimdall will display the progress as it flashes so that you know things are working as they should.
