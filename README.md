@@ -26,4 +26,4 @@ Building heimdall for termux with no root
 
 7. Now run heimdall commands like: ```heimdall flash --RECOVERY recovery.img --no-reboot```
 
-Note: You need to follow these steps again if device is reconnected 
+Note: You need to follow these steps again from ```4``` if device is reconnected 
